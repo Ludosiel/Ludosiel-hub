@@ -5,7 +5,7 @@ getgenv().autorebirth = false
 
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Robojini/Tuturial_UI_Library/main/UI_Template_1"))()
 
-local Window = Library.CreateLib("Ludosiel HUB", "RJTheme3")
+local Window = Library.CreateLib("DARK HUB", "RJTheme3")
 
 local Tab = Window:NewTab("Фарм (farming)")
 
