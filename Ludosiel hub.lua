@@ -18,13 +18,6 @@ Section:NewToggle("Авто-яйца (auto-egg)","ПОН", function(state)
     end
 end)
 
-Section:NewToggle("Авто перерождения (auto rebirth)", "чоооо", function(state)
-    getgenv().autorebirth = state
-    print('Перерождайся хуйлан', state)
-    if state then
-        autorebirth1()
-end
-end)
 
 Section:NewToggle("Автокликер (autoclick)", "Заебись штука", function(state)
     getgenv().autoTap = state
@@ -33,6 +26,26 @@ Section:NewToggle("Автокликер (autoclick)", "Заебись штука
         autotap1()
 end
 end)
+
+
+local Tab = Window:NewTab("Перерождения")
+local Section = Tab:NewSection("Основной фарм")
+
+local selectedrebirtho
+
+Section:NewDropdown("Rebirth(перерождения)", "DropdownInf", {"1", "5", "10","20", "100", "500"}, function(state)
+  selectedrebirtho = state
+  print(selectedrebirtho)
+end)
+Section:NewToggle("Авто перерождения (auto rebirth)", "чоооо", function(state)
+    getgenv().autorebirth = state
+    print('Перерождайся хуйлан', state)
+    if state and selectedrebirtho then
+        autorebirth1(selectedrebirtho)
+end
+end)
+
+
 
 
 
@@ -67,11 +80,10 @@ end
 function autorebirth1()
 spawn(function()
 while autorebirth == true do
-    local args = {[1] = 10}
+  local args = {selectedrebirtho}
     remotePath.Rebirth:FireServer(unpack(args))
     wait()
     end
   end) 
 end
-
 -- // join discord for key https://discord.gg/QBdvJ5QymP \\ --
