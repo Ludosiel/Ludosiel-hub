@@ -73,3 +73,5 @@ while autorebirth == true do
     end
   end) 
 end
+
+-- // join discord for key https://discord.gg/QBdvJ5QymP \\ --
