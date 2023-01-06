@@ -10,10 +10,12 @@ local Window = Library.CreateLib("DARK HUB", "RJTheme3")
 local Tab = Window:NewTab("Фарм (farming)")
 
 local Section = Tab:NewSection("Основной фарм")
-Section:NewToggle("Авто-яйца (auto-egg)","ПОН", function(state)
-        getgenv().autoegg = state
-        print('яички теребём', state)
-        if state then
+
+
+Section:NewToggle("Авто-яйца (auto-egg)","ПОН", function(aboba)
+        getgenv().autoegg = aboba
+        print('яички теребём', aboba)
+        if aboba then
             autoegg1()
     end
 end)
@@ -68,8 +70,7 @@ end
 
 function autoegg1()
 spawn(function()
-    while getgenv().autorebirth == true do
-        if not getgenv.autoegg then break end
+    while getgenv().autoegg == true do
         local args = {[1] = {},[2] = "Starter",[3] = 1}
         remotePath.HatchEgg:InvokeServer(unpack(args))
         wait()
